@@ -12,13 +12,14 @@
   columnWidth: number,
   spacer?: number,
 };*/
-export default function createCellPositioner(_ref) {
-  /*: Positioner*/
+export default function createCellPositioner(_ref)
+/*: Positioner*/
+{
   var cellMeasurerCache = _ref.cellMeasurerCache,
-    columnCount = _ref.columnCount,
-    columnWidth = _ref.columnWidth,
-    _ref$spacer = _ref.spacer,
-    spacer = _ref$spacer === void 0 ? 0 : _ref$spacer;
+      columnCount = _ref.columnCount,
+      columnWidth = _ref.columnWidth,
+      _ref$spacer = _ref.spacer,
+      spacer = _ref$spacer === void 0 ? 0 : _ref$spacer;
   var columnHeights;
   initOrResetDerivedValues();
 
@@ -34,16 +35,16 @@ export default function createCellPositioner(_ref) {
 
     var left = columnIndex * (columnWidth + spacer);
     var top = columnHeights[columnIndex] || 0;
-    columnHeights[columnIndex] =
-      top + cellMeasurerCache.getHeight(index) + spacer;
+    columnHeights[columnIndex] = top + cellMeasurerCache.getHeight(index) + spacer;
     return {
       left: left,
-      top: top,
+      top: top
     };
   }
 
-  function initOrResetDerivedValues() {
-    /*: void*/
+  function initOrResetDerivedValues()
+  /*: void*/
+  {
     // Track the height of each column.
     // Layout algorithm below always inserts into the shortest column.
     columnHeights = [];
@@ -53,11 +54,11 @@ export default function createCellPositioner(_ref) {
     }
   }
 
-  function reset(
-    params,
-    /*: resetParams*/
-  ) {
-    /*: void*/
+  function reset(params
+  /*: resetParams*/
+  )
+  /*: void*/
+  {
     columnCount = params.columnCount;
     columnWidth = params.columnWidth;
     spacer = params.spacer;

@@ -7,7 +7,7 @@
  */
 export default function defaultCellDataGetter(_ref) {
   var dataKey = _ref.dataKey,
-    rowData = _ref.rowData;
+      rowData = _ref.rowData;
 
   if (typeof rowData.get === 'function') {
     return rowData.get(dataKey);

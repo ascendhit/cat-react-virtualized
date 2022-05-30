@@ -8,13 +8,14 @@ export var SCROLL_DIRECTION_VERTICAL = 'vertical';
  * This function ensures that overscanning doesn't exceed the available cells.
  */
 
-export default function defaultOverscanIndicesGetter(_ref) {
-  /*: OverscanIndices*/
+export default function defaultOverscanIndicesGetter(_ref)
+/*: OverscanIndices*/
+{
   var cellCount = _ref.cellCount,
-    overscanCellsCount = _ref.overscanCellsCount,
-    scrollDirection = _ref.scrollDirection,
-    startIndex = _ref.startIndex,
-    stopIndex = _ref.stopIndex;
+      overscanCellsCount = _ref.overscanCellsCount,
+      scrollDirection = _ref.scrollDirection,
+      startIndex = _ref.startIndex,
+      stopIndex = _ref.stopIndex;
   // Make sure we render at least 1 cell extra before and after (except near boundaries)
   // This is necessary in order to support keyboard navigation (TAB/SHIFT+TAB) in some cases
   // For more info see issues #625
@@ -23,15 +24,12 @@ export default function defaultOverscanIndicesGetter(_ref) {
   if (scrollDirection === SCROLL_DIRECTION_FORWARD) {
     return {
       overscanStartIndex: Math.max(0, startIndex - 1),
-      overscanStopIndex: Math.min(
-        cellCount - 1,
-        stopIndex + overscanCellsCount,
-      ),
+      overscanStopIndex: Math.min(cellCount - 1, stopIndex + overscanCellsCount)
     };
   } else {
     return {
       overscanStartIndex: Math.max(0, startIndex - overscanCellsCount),
-      overscanStopIndex: Math.min(cellCount - 1, stopIndex + 1),
+      overscanStopIndex: Math.min(cellCount - 1, stopIndex + 1)
     };
   }
 }

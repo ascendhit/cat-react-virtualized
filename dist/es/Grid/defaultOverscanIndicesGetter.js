@@ -8,26 +8,24 @@ export var SCROLL_DIRECTION_VERTICAL = 'vertical';
  * This function ensures that overscanning doesn't exceed the available cells.
  */
 
-export default function defaultOverscanIndicesGetter(_ref) {
-  /*: OverscanIndices*/
+export default function defaultOverscanIndicesGetter(_ref)
+/*: OverscanIndices*/
+{
   var cellCount = _ref.cellCount,
-    overscanCellsCount = _ref.overscanCellsCount,
-    scrollDirection = _ref.scrollDirection,
-    startIndex = _ref.startIndex,
-    stopIndex = _ref.stopIndex;
+      overscanCellsCount = _ref.overscanCellsCount,
+      scrollDirection = _ref.scrollDirection,
+      startIndex = _ref.startIndex,
+      stopIndex = _ref.stopIndex;
 
   if (scrollDirection === SCROLL_DIRECTION_FORWARD) {
     return {
       overscanStartIndex: Math.max(0, startIndex),
-      overscanStopIndex: Math.min(
-        cellCount - 1,
-        stopIndex + overscanCellsCount,
-      ),
+      overscanStopIndex: Math.min(cellCount - 1, stopIndex + overscanCellsCount)
     };
   } else {
     return {
       overscanStartIndex: Math.max(0, startIndex - overscanCellsCount),
-      overscanStopIndex: Math.min(cellCount - 1, stopIndex),
+      overscanStopIndex: Math.min(cellCount - 1, stopIndex)
     };
   }
 }

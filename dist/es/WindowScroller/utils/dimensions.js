@@ -21,25 +21,25 @@ var getBoundingBox = function getBoundingBox(element) {
   return element.getBoundingClientRect();
 };
 
-export function getDimensions(
-  scrollElement,
-  /*: ?Element*/
-  props,
-  /*: WindowScrollerProps*/
-) {
-  /*: Dimensions*/
+export function getDimensions(scrollElement
+/*: ?Element*/
+, props
+/*: WindowScrollerProps*/
+)
+/*: Dimensions*/
+{
   if (!scrollElement) {
     return {
       height: props.serverHeight,
-      width: props.serverWidth,
+      width: props.serverWidth
     };
   } else if (isWindow(scrollElement)) {
     var _window = window,
-      innerHeight = _window.innerHeight,
-      innerWidth = _window.innerWidth;
+        innerHeight = _window.innerHeight,
+        innerWidth = _window.innerWidth;
     return {
       height: typeof innerHeight === 'number' ? innerHeight : 0,
-      width: typeof innerWidth === 'number' ? innerWidth : 0,
+      width: typeof innerWidth === 'number' ? innerWidth : 0
     };
   } else {
     return getBoundingBox(scrollElement);
@@ -52,11 +52,10 @@ export function getDimensions(
  * In this case the body’s top or left position will be a negative number and this element’s top or left will be increased (by that amount).
  */
 
-export function getPositionOffset(
-  element,
-  /*: Element*/
-  container,
-  /*: Element*/
+export function getPositionOffset(element
+/*: Element*/
+, container
+/*: Element*/
 ) {
   if (isWindow(container) && document.documentElement) {
     var containerElement = document.documentElement;
@@ -64,7 +63,7 @@ export function getPositionOffset(
     var containerRect = getBoundingBox(containerElement);
     return {
       top: elementRect.top - containerRect.top,
-      left: elementRect.left - containerRect.left,
+      left: elementRect.left - containerRect.left
     };
   } else {
     var scrollOffset = getScrollOffset(container);
@@ -75,7 +74,7 @@ export function getPositionOffset(
 
     return {
       top: _elementRect.top + scrollOffset.top - _containerRect.top,
-      left: _elementRect.left + scrollOffset.left - _containerRect.left,
+      left: _elementRect.left + scrollOffset.left - _containerRect.left
     };
   }
 }
@@ -84,25 +83,18 @@ export function getPositionOffset(
  * and API differences between `window` and other DOM elements.
  */
 
-export function getScrollOffset(
-  element,
-  /*: Element*/
+export function getScrollOffset(element
+/*: Element*/
 ) {
   if (isWindow(element) && document.documentElement) {
     return {
-      top:
-        'scrollY' in window
-          ? window.scrollY
-          : document.documentElement.scrollTop,
-      left:
-        'scrollX' in window
-          ? window.scrollX
-          : document.documentElement.scrollLeft,
+      top: 'scrollY' in window ? window.scrollY : document.documentElement.scrollTop,
+      left: 'scrollX' in window ? window.scrollX : document.documentElement.scrollLeft
     };
   } else {
     return {
       top: element.scrollTop,
-      left: element.scrollLeft,
+      left: element.scrollLeft
     };
   }
 }

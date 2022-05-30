@@ -1,40 +1,15 @@
-import _extends from '@babel/runtime/helpers/extends';
-import _classCallCheck from '@babel/runtime/helpers/classCallCheck';
-import _createClass from '@babel/runtime/helpers/createClass';
-import _assertThisInitialized from '@babel/runtime/helpers/assertThisInitialized';
-import _inherits from '@babel/runtime/helpers/inherits';
-import _possibleConstructorReturn from '@babel/runtime/helpers/possibleConstructorReturn';
-import _getPrototypeOf from '@babel/runtime/helpers/getPrototypeOf';
-import _defineProperty from '@babel/runtime/helpers/defineProperty';
+import _extends from "@babel/runtime/helpers/extends";
+import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
+import _createClass from "@babel/runtime/helpers/createClass";
+import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
+import _inherits from "@babel/runtime/helpers/inherits";
+import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstructorReturn";
+import _getPrototypeOf from "@babel/runtime/helpers/getPrototypeOf";
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
 
-function _createSuper(Derived) {
-  var hasNativeReflectConstruct = _isNativeReflectConstruct();
-  return function _createSuperInternal() {
-    var Super = _getPrototypeOf(Derived),
-      result;
-    if (hasNativeReflectConstruct) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-    return _possibleConstructorReturn(this, result);
-  };
-}
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === 'undefined' || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === 'function') return true;
-  try {
-    Boolean.prototype.valueOf.call(
-      Reflect.construct(Boolean, [], function() {}),
-    );
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 /*:: import type {
   NoContentRenderer,
@@ -48,7 +23,7 @@ function _isNativeReflectConstruct() {
 } from '../Grid';*/
 
 /*:: import type {RowRenderer, RenderedRows, Scroll} from './types';*/
-import Grid, {accessibilityOverscanIndicesGetter} from '../Grid';
+import Grid, { accessibilityOverscanIndicesGetter } from '../Grid';
 import * as React from 'react';
 import clsx from 'clsx';
 /**
@@ -131,7 +106,7 @@ import clsx from 'clsx';
   width: number,
 };*/
 
-var List = /*#__PURE__*/ (function(_React$PureComponent) {
+var List = /*#__PURE__*/function (_React$PureComponent) {
   _inherits(List, _React$PureComponent);
 
   var _super = _createSuper(List);
@@ -141,27 +116,21 @@ var List = /*#__PURE__*/ (function(_React$PureComponent) {
 
     _classCallCheck(this, List);
 
-    for (
-      var _len = arguments.length, args = new Array(_len), _key = 0;
-      _key < _len;
-      _key++
-    ) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _defineProperty(_assertThisInitialized(_this), 'Grid', void 0);
+    _defineProperty(_assertThisInitialized(_this), "Grid", void 0);
 
-    _defineProperty(_assertThisInitialized(_this), '_cellRenderer', function(
-      _ref,
-    ) {
+    _defineProperty(_assertThisInitialized(_this), "_cellRenderer", function (_ref) {
       var parent = _ref.parent,
-        rowIndex = _ref.rowIndex,
-        style = _ref.style,
-        isScrolling = _ref.isScrolling,
-        isVisible = _ref.isVisible,
-        key = _ref.key;
+          rowIndex = _ref.rowIndex,
+          style = _ref.style,
+          isScrolling = _ref.isScrolling,
+          isVisible = _ref.isVisible,
+          key = _ref.key;
       var rowRenderer = _this.props.rowRenderer; // TRICKY The style object is sometimes cached by Grid.
       // This prevents new style objects from bypassing shallowCompare().
       // However as of React 16, style props are auto-frozen (at least in dev mode)
@@ -182,206 +151,190 @@ var List = /*#__PURE__*/ (function(_React$PureComponent) {
         isScrolling: isScrolling,
         isVisible: isVisible,
         key: key,
-        parent: parent,
+        parent: parent
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), '_setRef', function(
-      ref,
-      /*: ?React.ElementRef<typeof Grid>*/
+    _defineProperty(_assertThisInitialized(_this), "_setRef", function (ref
+    /*: ?React.ElementRef<typeof Grid>*/
     ) {
       _this.Grid = ref;
     });
 
-    _defineProperty(_assertThisInitialized(_this), '_onScroll', function(
-      _ref2,
-    ) {
+    _defineProperty(_assertThisInitialized(_this), "_onScroll", function (_ref2) {
       var clientHeight = _ref2.clientHeight,
-        scrollHeight = _ref2.scrollHeight,
-        scrollTop = _ref2.scrollTop;
+          scrollHeight = _ref2.scrollHeight,
+          scrollTop = _ref2.scrollTop;
       var onScroll = _this.props.onScroll;
       onScroll({
         clientHeight: clientHeight,
         scrollHeight: scrollHeight,
-        scrollTop: scrollTop,
+        scrollTop: scrollTop
       });
     });
 
-    _defineProperty(
-      _assertThisInitialized(_this),
-      '_onSectionRendered',
-      function(_ref3) {
-        var rowOverscanStartIndex = _ref3.rowOverscanStartIndex,
+    _defineProperty(_assertThisInitialized(_this), "_onSectionRendered", function (_ref3) {
+      var rowOverscanStartIndex = _ref3.rowOverscanStartIndex,
           rowOverscanStopIndex = _ref3.rowOverscanStopIndex,
           rowStartIndex = _ref3.rowStartIndex,
           rowStopIndex = _ref3.rowStopIndex;
-        var onRowsRendered = _this.props.onRowsRendered;
-        onRowsRendered({
-          overscanStartIndex: rowOverscanStartIndex,
-          overscanStopIndex: rowOverscanStopIndex,
-          startIndex: rowStartIndex,
-          stopIndex: rowStopIndex,
-        });
-      },
-    );
+      var onRowsRendered = _this.props.onRowsRendered;
+      onRowsRendered({
+        overscanStartIndex: rowOverscanStartIndex,
+        overscanStopIndex: rowOverscanStopIndex,
+        startIndex: rowStartIndex,
+        stopIndex: rowStopIndex
+      });
+    });
 
     return _this;
   }
 
-  _createClass(List, [
-    {
-      key: 'forceUpdateGrid',
-      value: function forceUpdateGrid() {
-        if (this.Grid) {
-          this.Grid.forceUpdate();
-        }
-      },
-      /** See Grid#getOffsetForCell */
-    },
-    {
-      key: 'getOffsetForRow',
-      value: function getOffsetForRow(_ref4) {
-        var alignment = _ref4.alignment,
+  _createClass(List, [{
+    key: "forceUpdateGrid",
+    value: function forceUpdateGrid() {
+      if (this.Grid) {
+        this.Grid.forceUpdate();
+      }
+    }
+    /** See Grid#getOffsetForCell */
+
+  }, {
+    key: "getOffsetForRow",
+    value: function getOffsetForRow(_ref4) {
+      var alignment = _ref4.alignment,
           index = _ref4.index;
 
-        if (this.Grid) {
-          var _this$Grid$getOffsetF = this.Grid.getOffsetForCell({
-              alignment: alignment,
-              rowIndex: index,
-              columnIndex: 0,
-            }),
+      if (this.Grid) {
+        var _this$Grid$getOffsetF = this.Grid.getOffsetForCell({
+          alignment: alignment,
+          rowIndex: index,
+          columnIndex: 0
+        }),
             scrollTop = _this$Grid$getOffsetF.scrollTop;
 
-          return scrollTop;
-        }
+        return scrollTop;
+      }
 
-        return 0;
-      },
-      /** CellMeasurer compatibility */
-    },
-    {
-      key: 'invalidateCellSizeAfterRender',
-      value: function invalidateCellSizeAfterRender(_ref5) {
-        var columnIndex = _ref5.columnIndex,
+      return 0;
+    }
+    /** CellMeasurer compatibility */
+
+  }, {
+    key: "invalidateCellSizeAfterRender",
+    value: function invalidateCellSizeAfterRender(_ref5) {
+      var columnIndex = _ref5.columnIndex,
           rowIndex = _ref5.rowIndex;
 
-        if (this.Grid) {
-          this.Grid.invalidateCellSizeAfterRender({
-            rowIndex: rowIndex,
-            columnIndex: columnIndex,
-          });
-        }
-      },
-      /** See Grid#measureAllCells */
-    },
-    {
-      key: 'measureAllRows',
-      value: function measureAllRows() {
-        if (this.Grid) {
-          this.Grid.measureAllCells();
-        }
-      },
-      /** CellMeasurer compatibility */
-    },
-    {
-      key: 'recomputeGridSize',
-      value: function recomputeGridSize() {
-        var _ref6 =
-            arguments.length > 0 && arguments[0] !== undefined
-              ? arguments[0]
-              : {},
+      if (this.Grid) {
+        this.Grid.invalidateCellSizeAfterRender({
+          rowIndex: rowIndex,
+          columnIndex: columnIndex
+        });
+      }
+    }
+    /** See Grid#measureAllCells */
+
+  }, {
+    key: "measureAllRows",
+    value: function measureAllRows() {
+      if (this.Grid) {
+        this.Grid.measureAllCells();
+      }
+    }
+    /** CellMeasurer compatibility */
+
+  }, {
+    key: "recomputeGridSize",
+    value: function recomputeGridSize() {
+      var _ref6 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
           _ref6$columnIndex = _ref6.columnIndex,
           columnIndex = _ref6$columnIndex === void 0 ? 0 : _ref6$columnIndex,
           _ref6$rowIndex = _ref6.rowIndex,
           rowIndex = _ref6$rowIndex === void 0 ? 0 : _ref6$rowIndex;
 
-        if (this.Grid) {
-          this.Grid.recomputeGridSize({
-            rowIndex: rowIndex,
-            columnIndex: columnIndex,
-          });
-        }
-      },
-      /** See Grid#recomputeGridSize */
-    },
-    {
-      key: 'recomputeRowHeights',
-      value: function recomputeRowHeights() {
-        var index =
-          /*: number*/
-          arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      if (this.Grid) {
+        this.Grid.recomputeGridSize({
+          rowIndex: rowIndex,
+          columnIndex: columnIndex
+        });
+      }
+    }
+    /** See Grid#recomputeGridSize */
 
-        if (this.Grid) {
-          this.Grid.recomputeGridSize({
-            rowIndex: index,
-            columnIndex: 0,
-          });
-        }
-      },
-      /** See Grid#scrollToPosition */
-    },
-    {
-      key: 'scrollToPosition',
-      value: function scrollToPosition() {
-        var scrollTop =
-          /*: number*/
-          arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  }, {
+    key: "recomputeRowHeights",
+    value: function recomputeRowHeights() {
+      var index
+      /*: number*/
+      = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
-        if (this.Grid) {
-          this.Grid.scrollToPosition({
-            scrollTop: scrollTop,
-          });
-        }
-      },
-      /** See Grid#scrollToCell */
-    },
-    {
-      key: 'scrollToRow',
-      value: function scrollToRow() {
-        var index =
-          /*: number*/
-          arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      if (this.Grid) {
+        this.Grid.recomputeGridSize({
+          rowIndex: index,
+          columnIndex: 0
+        });
+      }
+    }
+    /** See Grid#scrollToPosition */
 
-        if (this.Grid) {
-          this.Grid.scrollToCell({
-            columnIndex: 0,
-            rowIndex: index,
-          });
-        }
-      },
-    },
-    {
-      key: 'render',
-      value: function render() {
-        var _this$props = this.props,
+  }, {
+    key: "scrollToPosition",
+    value: function scrollToPosition() {
+      var scrollTop
+      /*: number*/
+      = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+      if (this.Grid) {
+        this.Grid.scrollToPosition({
+          scrollTop: scrollTop
+        });
+      }
+    }
+    /** See Grid#scrollToCell */
+
+  }, {
+    key: "scrollToRow",
+    value: function scrollToRow() {
+      var index
+      /*: number*/
+      = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+      if (this.Grid) {
+        this.Grid.scrollToCell({
+          columnIndex: 0,
+          rowIndex: index
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
           className = _this$props.className,
           noRowsRenderer = _this$props.noRowsRenderer,
           scrollToIndex = _this$props.scrollToIndex,
           width = _this$props.width;
-        var classNames = clsx('ReactVirtualized__List', className);
-        return /*#__PURE__*/ React.createElement(
-          Grid,
-          _extends({}, this.props, {
-            autoContainerWidth: true,
-            cellRenderer: this._cellRenderer,
-            className: classNames,
-            columnWidth: width,
-            columnCount: 1,
-            noContentRenderer: noRowsRenderer,
-            onScroll: this._onScroll,
-            onSectionRendered: this._onSectionRendered,
-            ref: this._setRef,
-            scrollToRow: scrollToIndex,
-          }),
-        );
-      },
-    },
-  ]);
+      var classNames = clsx('ReactVirtualized__List', className);
+      return /*#__PURE__*/React.createElement(Grid, _extends({}, this.props, {
+        autoContainerWidth: true,
+        cellRenderer: this._cellRenderer,
+        className: classNames,
+        columnWidth: width,
+        columnCount: 1,
+        noContentRenderer: noRowsRenderer,
+        onScroll: this._onScroll,
+        onSectionRendered: this._onSectionRendered,
+        ref: this._setRef,
+        scrollToRow: scrollToIndex
+      }));
+    }
+  }]);
 
   return List;
-})(React.PureComponent);
+}(React.PureComponent);
 
-_defineProperty(List, 'defaultProps', {
+_defineProperty(List, "defaultProps", {
   autoHeight: false,
   estimatedRowSize: 30,
   onScroll: function onScroll() {},
@@ -393,7 +346,7 @@ _defineProperty(List, 'defaultProps', {
   overscanRowCount: 10,
   scrollToAlignment: 'auto',
   scrollToIndex: -1,
-  style: {},
+  style: {}
 });
 
-export {List as default};
+export { List as default };
