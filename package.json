@@ -126,7 +126,7 @@
     "react-router-dom": "^5.2.0",
     "react-test-renderer": "^17.0.1",
     "rimraf": "^3.0.0",
-    "rollup": "^1.26.5",
+    "rollup": "^2.79.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
